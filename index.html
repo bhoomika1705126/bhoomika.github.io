@@ -1,112 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bhoomika N - Portfolio</title>
   <style>
-    /* Gradient Background Animation */
+    /* Animated gradient background */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      animation: gradientBG 10s ease infinite;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
       background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      text-align: center;
     }
-
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     header {
-      text-align: center;
-      padding: 50px 20px;
+      padding: 50px 20px 20px;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 15px;
     }
     header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      margin: 10px 0 5px;
+      font-size: 2em;
     }
     header p {
       font-size: 1.2em;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.5;
+      margin: 5px 0 15px;
+    }
+    nav {
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 20px;
       max-width: 900px;
       margin: auto;
     }
     h2 {
-      text-align: center;
+      font-size: 1.8em;
       margin-bottom: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    ul li {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-    ul li:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    a {
-      color: #ffeb3b;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      border-bottom: 2px solid white;
+      display: inline-block;
+      padding-bottom: 5px;
     }
 
-    footer {
-      text-align: center;
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
       padding: 20px;
-      font-size: 1em;
-      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.25);
+    }
+    .card a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
+
   <header>
+    <img src="your-photo.jpg" alt="Bhoomika N">
     <h1>Bhoomika N</h1>
-    <p>
-      I am an organized, quick-learning, and creative problem-solver with a passion for blending AI/ML and Data Science to build solutions that make a real difference. 
-      From designing AI-powered projects like intelligent assistants to working on inclusive tech, I enjoy combining precision with innovative thinking to create solutions that are intelligent, inclusive, and practical. 
-      Beyond technology, I bring creativity through drawing, curiosity through travelling and exploring cultures, and a growth mindset fueled by continuous learning.
-    </p>
+    <p>ECE Student | Aspiring Data Scientist & VLSI Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <strong>Stress Level Prediction App</strong> – 
-        <a href="https://stressappnew-ec3q5z2xjadqwgwpjapbb7.streamlit.app/" target="_blank">View Project</a>
-      </li>
-    </ul>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a 3rd-year Electronics and Communication Engineering student with a keen interest in Data Science and VLSI. 
+      I love building AI-powered applications, exploring new technologies, and applying my skills to solve real-world problems.
+    </p>
   </section>
 
-  <section>
-    <h2>Certifications & Achievements</h2>
-    <ul>
-      <li><a href="https://certificate.givemycertificate.com/c/b0750c50-a56d-405c-bb79-9b91fd7a85dd" target="_blank">GitHub Event Certificate</a></li>
-      <li><a href="https://www.credly.com/go/qvSh0BZd" target="_blank">AWS Certification</a></li>
-      <li><a href="https://skillsoft.digitalbadges.skillsoft.com/1423c513-2874-402e-85f4-5ec405a31f9d" target="_blank">Skillsoft Certification 1</a></li>
-      <li><a href="https://skillsoft.digitalbadges.skillsoft.com/83bb9d11-74ad-4e17-953c-47528bd3b81b" target="_blank">Skillsoft Certification 2</a></li>
-    </ul>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>EduVision AI Assistant</h3>
+        <p>Streamlit-based AI assistant with multilingual support, PDF Q&A, emotion detection, and concept visualization.</p>
+        <a href="https://github.com/yourusername/EduVision" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Satyavani Fake News Detection</h3>
+        <p>AI system to detect fake news, deepfakes, and voice-based misinformation with explainable AI.</p>
+        <a href="https://github.com/yourusername/Satyavani" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Stress Level Prediction App</h3>
+        <p>Machine learning-based app to predict stress levels from user inputs using ensemble models.</p>
+        <a href="https://stressappnew-ec3q5z2xjadqwgwpjapbb7.streamlit.app/" target="_blank">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card-container">
+      <div class="card">
+        <a href="https://certificate.givemycertificate.com/c/b0750c50-a56d-405c-bb79-9b91fd7a85dd-Github event" target="_blank">GitHub Event Certification</a>
+      </div>
+      <div class="card">
+        <a href="https://www.credly.com/go/qvSh0BZd-aws certification" target="_blank">AWS Certification</a>
+      </div>
+      <div class="card">
+        <a href="https://skillsoft.digitalbadges.skillsoft.com/1423c513-2874-402e-85f4-5ec405a31f9d" target="_blank">Skillsoft Badge 1</a>
+      </div>
+      <div class="card">
+        <a href="https://skillsoft.digitalbadges.skillsoft.com/83bb9d11-74ad-4e17-953c-47528bd3b81b" target="_blank">Skillsoft Badge 2</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>
+      Participated in Smart India Hackathon (SIH) with a project targeting fake news and deepfake detection.
+      Worked on integrating machine learning models, API-based fact-checking, and multilingual support.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      <a href="https://www.linkedin.com/in/bhoomika-n-a4000b299" target="_blank" style="color:white;">LinkedIn</a> |
+      <a href="mailto:bhoomika@example.com" style="color:white;">Email</a>
+    </p>
   </section>
 
   <footer>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/bhoomika-n-a4000b299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+    &copy; 2025 Bhoomika N | Designed with ❤️
   </footer>
+
 </body>
 </html>
