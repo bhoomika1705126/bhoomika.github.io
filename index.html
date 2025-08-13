@@ -1,180 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bhoomika N - Portfolio</title>
-  <style>
-    /* Animated gradient background */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      text-align: center;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhoomika N - Portfolio</title>
 
-    header {
-      padding: 50px 20px 20px;
-    }
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 15px;
-    }
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 2em;
-    }
-    header p {
-      font-size: 1.2em;
-      margin: 5px 0 15px;
-    }
-    nav {
-      margin-bottom: 30px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ffd700;
-    }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-      border-bottom: 2px solid white;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
+<style>
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #333;
+  overflow-x: hidden;
+  position: relative;
+}
 
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: rgba(255,255,255,0.15);
-      padding: 20px;
-      border-radius: 12px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s, background 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.25);
-    }
-    .card a {
-      color: #ffd700;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+/* ===== BACKGROUND ANIMATION ===== */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: float 20s infinite ease-in-out;
+  z-index: -1;
+}
+.bg-blob1 { background: #ffafbd; width: 400px; height: 400px; top: -100px; left: -100px; }
+.bg-blob2 { background: #ffc3a0; width: 300px; height: 300px; bottom: -80px; right: -80px; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-50px) translateX(30px); }
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+header img {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+header h1 { font-size: 2rem; margin-top: 15px; }
+header p { font-size: 1.1rem; color: #555; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav a:hover { color: #ff4b2b; }
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== PROJECTS ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== SKILLS ===== */
+.skill-bar {
+  margin-bottom: 15px;
+}
+.skill-bar span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.progress {
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  height: 10px;
+  width: 0;
+  border-radius: 10px;
+  transition: width 1s ease-out;
+}
+
+/* ===== CERTIFICATIONS ===== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.cert-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.cert-card h3 { margin-bottom: 10px; }
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <img src="your-photo.jpg" alt="Bhoomika N">
-    <h1>Bhoomika N</h1>
-    <p>ECE Student | Aspiring Data Scientist & VLSI Enthusiast</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- Background Blobs -->
+<div class="bg-blob bg-blob1"></div>
+<div class="bg-blob bg-blob2"></div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a 3rd-year Electronics and Communication Engineering student with a keen interest in Data Science and VLSI. 
-      I love building AI-powered applications, exploring new technologies, and applying my skills to solve real-world problems.
-    </p>
-  </section>
+<!-- Header -->
+<header>
+  <img src="your-photo.jpg" alt="Bhoomika N">
+  <h1>Bhoomika N</h1>
+  <p>ECE Student | Aspiring Data Scientist & VLSI Engineer</p>
+</header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>EduVision AI Assistant</h3>
-        <p>Streamlit-based AI assistant with multilingual support, PDF Q&A, emotion detection, and concept visualization.</p>
-        <a href="https://github.com/yourusername/EduVision" target="_blank">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Satyavani Fake News Detection</h3>
-        <p>AI system to detect fake news, deepfakes, and voice-based misinformation with explainable AI.</p>
-        <a href="https://github.com/yourusername/Satyavani" target="_blank">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Stress Level Prediction App</h3>
-        <p>Machine learning-based app to predict stress levels from user inputs using ensemble models.</p>
-        <a href="https://stressappnew-ec3q5z2xjadqwgwpjapbb7.streamlit.app/" target="_blank">Live Demo</a>
-      </div>
+<!-- Navigation -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hello! I'm Bhoomika, a 3rd-year ECE student passionate about Data Science and VLSI. I love building AI-powered solutions, interactive web apps, and tackling real-world challenges through technology.</p>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>EduVision AI</h3>
+      <p>AI Classroom Assistant with multilingual Q&A, emotion detection, and concept visualization.</p>
     </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="card-container">
-      <div class="card">
-        <a href="https://certificate.givemycertificate.com/c/b0750c50-a56d-405c-bb79-9b91fd7a85dd-Github event" target="_blank">GitHub Event Certification</a>
-      </div>
-      <div class="card">
-        <a href="https://www.credly.com/go/qvSh0BZd-aws certification" target="_blank">AWS Certification</a>
-      </div>
-      <div class="card">
-        <a href="https://skillsoft.digitalbadges.skillsoft.com/1423c513-2874-402e-85f4-5ec405a31f9d" target="_blank">Skillsoft Badge 1</a>
-      </div>
-      <div class="card">
-        <a href="https://skillsoft.digitalbadges.skillsoft.com/83bb9d11-74ad-4e17-953c-47528bd3b81b" target="_blank">Skillsoft Badge 2</a>
-      </div>
+    <div class="project-card">
+      <h3>Satyavani</h3>
+      <p>Fake news, deepfake, and voice mismatch detection system with WhatsApp bot support.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <p>
-      Participated in Smart India Hackathon (SIH) with a project targeting fake news and deepfake detection.
-      Worked on integrating machine learning models, API-based fact-checking, and multilingual support.
-    </p>
-  </section>
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill-bar">
+    <span>Python</span>
+    <div class="progress"><div class="progress-fill" data-width="90%"></div></div>
+  </div>
+  <div class="skill-bar">
+    <span>Machine Learning</span>
+    <div class="progress"><div class="progress-fill" data-width="85%"></div></div>
+  </div>
+  <div class="skill-bar">
+    <span>VLSI Design</span>
+    <div class="progress"><div class="progress-fill" data-width="75%"></div></div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      <a href="https://www.linkedin.com/in/bhoomika-n-a4000b299" target="_blank" style="color:white;">LinkedIn</a> |
-      <a href="mailto:bhoomika@example.com" style="color:white;">Email</a>
-    </p>
-  </section>
+<!-- Certifications -->
+<section id="certifications">
+  <h2>Certifications & Achievements</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <h3>Python for Data Science</h3>
+      <p>Completed with distinction on Coursera.</p>
+    </div>
+    <div class="cert-card">
+      <h3>Intel OpenVINO Toolkit</h3>
+      <p>Certified for AI model optimization.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 Bhoomika N | Designed with ❤️
-  </footer>
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:bhoomika@example.com">bhoomika@example.com</a></p>
+  <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/bhoomika</a></p>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Bhoomika N. All Rights Reserved.
+</footer>
+
+<script>
+// Fade-in animation
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+sections.forEach(sec => observer.observe(sec));
+
+// Skill bar animation
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.progress-fill').forEach(bar => {
+    bar.style.width = bar.dataset.width;
+  });
+});
+</script>
 
 </body>
 </html>
