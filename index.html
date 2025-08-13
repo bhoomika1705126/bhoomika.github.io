@@ -5,52 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhoomika | Portfolio</title>
     <style>
+        /* General Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
+            scroll-behavior: smooth;
         }
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4CAF50, #2E8B57);
             color: white;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        nav {
-            text-align: center;
-            margin-top: 10px;
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease;
         }
         nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FFD700;
         }
         section {
             padding: 2rem;
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
+            color: #2E8B57;
+            border-bottom: 2px solid #2E8B57;
             display: inline-block;
             padding-bottom: 5px;
         }
+        /* Project Cards */
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
         .card {
             background: white;
             padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
-        .card h3 {
-            margin-top: 0;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         footer {
             background-color: #333;
@@ -60,14 +83,19 @@
             margin-top: 2rem;
         }
         .contact-info a {
-            color: #4CAF50;
+            color: #2E8B57;
             text-decoration: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <img src="your-photo.jpg" alt="Bhoomika Photo">
         <h1>Bhoomika</h1>
         <p>Organized | Quick Learner | Creative Problem-Solver in AIML & Data Science</p>
         <nav>
@@ -90,11 +118,11 @@
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects">
-            <div class="card">
+            <div class="card" onclick="window.open('https://github.com/bhoomika1705126/Satyavani', '_blank')">
                 <h3>Satyavani</h3>
                 <p>Fake news, deepfake & voice analysis AI platform with regional language support and explainable AI features.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="window.open('https://github.com/bhoomika1705126/EduVisionAI', '_blank')">
                 <h3>EduVision AI</h3>
                 <p>Multilingual classroom assistant using OpenVINO for question answering, emotion detection, and PDF Q&A.</p>
             </div>
@@ -109,7 +137,7 @@
     <section id="contact">
         <h2>Contact</h2>
         <p class="contact-info">
-            📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+            📧 Email: <a href="mailto:nbhoomika59@gmail.com">nbhoomika59@gmail.com</a><br>
             💼 GitHub: <a href="https://github.com/bhoomika1705126" target="_blank">github.com/bhoomika1705126</a>
         </p>
     </section>
@@ -117,6 +145,19 @@
     <footer>
         <p>© 2025 Bhoomika | All Rights Reserved</p>
     </footer>
+
+    <script>
+        // Animation on scroll
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    sec.classList.add('visible');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
