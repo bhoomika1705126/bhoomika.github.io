@@ -3,161 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhoomika | Portfolio</title>
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-        header {
-            background: linear-gradient(135deg, #4CAF50, #2E8B57);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 15px;
-            animation: fadeIn 1.5s ease;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #FFD700;
-        }
-        section {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        h2 {
-            color: #2E8B57;
-            border-bottom: 2px solid #2E8B57;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        /* Project Cards */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        .contact-info a {
-            color: #2E8B57;
-            text-decoration: none;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-    </style>
+    <title>Bhoomika N | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <header>
-        <img src="your-photo.jpg" alt="Bhoomika Photo">
-        <h1>Bhoomika</h1>
-        <p>Organized | Quick Learner | Creative Problem-Solver in AIML & Data Science</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#interests">Interests</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<!-- Background Animation -->
+<div class="background"></div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am an organized person, a quick learner, and a creative problem-solver with a passion for both AIML and Data Science. 
-            I have developed impactful AI-powered projects and enjoy blending technical precision with innovative thinking to create 
-            solutions that are intelligent, inclusive, and practical.
-        </p>
-    </section>
+<!-- Navbar -->
+<header>
+    <nav>
+        <h1>Bhoomika N</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="card" onclick="window.open('https://github.com/bhoomika1705126/Fake-News-and-Deepfake', '_blank')">
-                <h3>Satyavani</h3>
-                <p>Fake news, deepfake & voice analysis AI platform with regional language support and explainable AI features.</p>
-            </div>
-            <div class="card" onclick="window.open('https://github.com/bhoomika1705126/EDUVISION-AI/tree/main', '_blank')">
-                <h3>EduVision AI</h3>
-                <p>Multilingual classroom assistant using OpenVINO for question answering, emotion detection, and PDF Q&A.</p>
-            </div>
+<!-- About Section -->
+<section id="about" class="fade-in">
+    <img src="your-photo.jpg" alt="Profile" class="profile-pic">
+    <h2>About Me</h2>
+    <p>Hello! I’m Bhoomika, a 3rd-year ECE student passionate about AI, Data Science, and VLSI. I create innovative projects that combine technology and creativity.</p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <div class="skill-bar"><span>Python</span><div class="progress" data-progress="90"></div></div>
+    <div class="skill-bar"><span>Machine Learning</span><div class="progress" data-progress="80"></div></div>
+    <div class="skill-bar"><span>VLSI Design</span><div class="progress" data-progress="70"></div></div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <div class="project-card" onclick="window.open('https://github.com/your-repo','_blank')">
+            <h3>EduVision AI Assistant</h3>
+            <p>Multilingual AI-powered learning assistant with emotion detection.</p>
         </div>
-    </section>
+        <div class="project-card" onclick="window.open('https://github.com/your-repo','_blank')">
+            <h3>Satyavani Fake News Detector</h3>
+            <p>Fake news, deepfake, and voice emotion mismatch detection system.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="interests">
-        <h2>Interests</h2>
-        <p>Beyond technology, I enjoy drawing, traveling, exploring new ideas, and continuous self-improvement through reading and learning from diverse fields.</p>
-    </section>
+<!-- Certifications -->
+<section id="certifications" class="fade-in">
+    <h2>Certifications</h2>
+    <ul>
+        <li>Python for Data Science – Coursera</li>
+        <li>AI for Everyone – Andrew Ng</li>
+        <li>VLSI Design Fundamentals – NPTEL</li>
+    </ul>
+</section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p class="contact-info">
-            📧 Email: <a href="mailto:nbhoomika59@gmail.com">nbhoomika59@gmail.com</a><br>
-            💼 GitHub: <a href="https://github.com/bhoomika1705126" target="_blank">github.com/bhoomika1705126</a>
-        </p>
-    </section>
+<!-- Achievements -->
+<section id="achievements" class="fade-in">
+    <h2>Achievements</h2>
+    <ul>
+        <li>Winner – XYZ Hackathon 2025</li>
+        <li>Top 5 Finalist – Smart India Hackathon</li>
+        <li>Presented AI project at National Tech Fest</li>
+    </ul>
+</section>
 
-    <footer>
-        <p>© 2025 Bhoomika | All Rights Reserved</p>
-    </footer>
+<!-- Contact -->
+<section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:youremail@gmail.com">youremail@gmail.com</a></p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
+    <p>GitHub: <a href="#">github.com/yourusername</a></p>
+</section>
 
-    <script>
-        // Animation on scroll
-        const sections = document.querySelectorAll('section');
-        window.addEventListener('scroll', () => {
-            sections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    sec.classList.add('visible');
-                }
-            });
-        });
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
