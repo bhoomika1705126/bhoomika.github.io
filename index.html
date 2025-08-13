@@ -1,260 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhoomika N - Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhoomika N - Portfolio</title>
+  <style>
+    /* Gradient Background Animation */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      animation: gradientBG 10s ease infinite;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      background-size: 400% 400%;
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-<style>
-/* ===== RESET ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  color: #333;
-  overflow-x: hidden;
-  position: relative;
-}
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.5;
+    }
 
-/* ===== BACKGROUND ANIMATION ===== */
-.bg-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  animation: float 20s infinite ease-in-out;
-  z-index: -1;
-}
-.bg-blob1 { background: #ffafbd; width: 400px; height: 400px; top: -100px; left: -100px; }
-.bg-blob2 { background: #ffc3a0; width: 300px; height: 300px; bottom: -80px; right: -80px; }
-@keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-50px) translateX(30px); }
-}
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    ul li:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    a {
+      color: #ffeb3b;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-/* ===== HEADER ===== */
-header {
-  text-align: center;
-  padding: 50px 20px;
-}
-header img {
-  width: 150px; height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-header h1 { font-size: 2rem; margin-top: 15px; }
-header p { font-size: 1.1rem; color: #555; }
-
-/* ===== NAVIGATION ===== */
-nav {
-  text-align: center;
-  background: rgba(255,255,255,0.8);
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-}
-nav a {
-  text-decoration: none;
-  margin: 0 15px;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav a:hover { color: #ff4b2b; }
-
-/* ===== SECTIONS ===== */
-section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* ===== PROJECTS ===== */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-.project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* ===== SKILLS ===== */
-.skill-bar {
-  margin-bottom: 15px;
-}
-.skill-bar span {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-.progress {
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.progress-fill {
-  background: linear-gradient(90deg, #ff4b2b, #ff416c);
-  height: 10px;
-  width: 0;
-  border-radius: 10px;
-  transition: width 1s ease-out;
-}
-
-/* ===== CERTIFICATIONS ===== */
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.cert-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.cert-card h3 { margin-bottom: 10px; }
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255,255,255,0.8);
-  margin-top: 50px;
-  font-size: 0.9rem;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Bhoomika N</h1>
+    <p>
+      I am an organized, quick-learning, and creative problem-solver with a passion for blending AI/ML and Data Science to build solutions that make a real difference. 
+      From designing AI-powered projects like intelligent assistants to working on inclusive tech, I enjoy combining precision with innovative thinking to create solutions that are intelligent, inclusive, and practical. 
+      Beyond technology, I bring creativity through drawing, curiosity through travelling and exploring cultures, and a growth mindset fueled by continuous learning.
+    </p>
+  </header>
 
-<!-- Background Blobs -->
-<div class="bg-blob bg-blob1"></div>
-<div class="bg-blob bg-blob2"></div>
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>Stress Level Prediction App</strong> – 
+        <a href="https://stressappnew-ec3q5z2xjadqwgwpjapbb7.streamlit.app/" target="_blank">View Project</a>
+      </li>
+    </ul>
+  </section>
 
-<!-- Header -->
-<header>
-  <img src="your-photo.jpg" alt="Bhoomika N">
-  <h1>Bhoomika N</h1>
-  <p>ECE Student | Aspiring Data Scientist & VLSI Engineer</p>
-</header>
+  <section>
+    <h2>Certifications & Achievements</h2>
+    <ul>
+      <li><a href="https://certificate.givemycertificate.com/c/b0750c50-a56d-405c-bb79-9b91fd7a85dd" target="_blank">GitHub Event Certificate</a></li>
+      <li><a href="https://www.credly.com/go/qvSh0BZd" target="_blank">AWS Certification</a></li>
+      <li><a href="https://skillsoft.digitalbadges.skillsoft.com/1423c513-2874-402e-85f4-5ec405a31f9d" target="_blank">Skillsoft Certification 1</a></li>
+      <li><a href="https://skillsoft.digitalbadges.skillsoft.com/83bb9d11-74ad-4e17-953c-47528bd3b81b" target="_blank">Skillsoft Certification 2</a></li>
+    </ul>
+  </section>
 
-<!-- Navigation -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>Hello! I'm Bhoomika, a 3rd-year ECE student passionate about Data Science and VLSI. I love building AI-powered solutions, interactive web apps, and tackling real-world challenges through technology.</p>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <h3>EduVision AI</h3>
-      <p>AI Classroom Assistant with multilingual Q&A, emotion detection, and concept visualization.</p>
-    </div>
-    <div class="project-card">
-      <h3>Satyavani</h3>
-      <p>Fake news, deepfake, and voice mismatch detection system with WhatsApp bot support.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skill-bar">
-    <span>Python</span>
-    <div class="progress"><div class="progress-fill" data-width="90%"></div></div>
-  </div>
-  <div class="skill-bar">
-    <span>Machine Learning</span>
-    <div class="progress"><div class="progress-fill" data-width="85%"></div></div>
-  </div>
-  <div class="skill-bar">
-    <span>VLSI Design</span>
-    <div class="progress"><div class="progress-fill" data-width="75%"></div></div>
-  </div>
-</section>
-
-<!-- Certifications -->
-<section id="certifications">
-  <h2>Certifications & Achievements</h2>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <h3>Python for Data Science</h3>
-      <p>Completed with distinction on Coursera.</p>
-    </div>
-    <div class="cert-card">
-      <h3>Intel OpenVINO Toolkit</h3>
-      <p>Certified for AI model optimization.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:bhoomika@example.com">bhoomika@example.com</a></p>
-  <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/bhoomika</a></p>
-</section>
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 Bhoomika N. All Rights Reserved.
-</footer>
-
-<script>
-// Fade-in animation
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-sections.forEach(sec => observer.observe(sec));
-
-// Skill bar animation
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.progress-fill').forEach(bar => {
-    bar.style.width = bar.dataset.width;
-  });
-});
-</script>
-
+  <footer>
+    <p>Connect with me on <a href="https://www.linkedin.com/in/bhoomika-n-a4000b299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+  </footer>
 </body>
 </html>
